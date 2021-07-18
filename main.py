@@ -4,8 +4,9 @@ from bokeh.plotting import figure, curdoc
 from datetime import datetime, timedelta
 from bokeh.models import TextInput, HoverTool
 import pandas as pd
+import os
 
-QUANDL_API_KEY=""
+QUANDL_API_KEY = os.environ['QUANDL_API_KEY']
 
 difficulty_df = pd.read_csv(
     "https://www.quandl.com/api/v3/datasets/BCHAIN/DIFF.csv?api_key={API_KEY}".format(API_KEY=QUANDL_API_KEY),
@@ -104,7 +105,7 @@ def calc_callback():
     p.line(x=chart_data["date"], y=chart_data["hold"], name="hold", legend_label="Hold BTC, $", color="olive")
 
     p.left[0].formatter.use_scientific = False
-    p.left[0].axis_label = "Profit mining vs. hold, $"
+    p.left[0].axis_label = "Hold BTC and Cumulative profit, $"
 
     p.right[0].formatter.use_scientific = False
     p.right[0].axis_label = "BTC price, $"
