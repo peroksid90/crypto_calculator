@@ -54,11 +54,14 @@ def calc_callback():
         "date": [],
         "btc_price": [],
         "cumulative": [],
+        "cumulative_btc" : [],
         "profit_per_day": [],
         "hold" : [],
     }
 
     cumulative_earn = 0
+    cumulative_btc = 0
+    cumulative_cost = 0
 
     start_day_str = start_day_val.strftime("%Y-%m-%d")
     buy_btc_price = btc_price_df["Value"][start_day_str]
@@ -76,9 +79,13 @@ def calc_callback():
 
         cumulative_earn += bitcoin_per_day_dollars
 
+        cumulative_cost += (power_consumption_kwh * float(electricity_per_kwh.value) * 24)
+        cumulative_btc += bitcoin_per_day
+
         chart_data["date"].append(day_val)
         chart_data["btc_price"].append(current_btc_price)
         chart_data["cumulative"].append(cumulative_earn)
+        chart_data["cumulative_btc"].append((cumulative_btc * current_btc_price) - cumulative_cost)
         chart_data["profit_per_day"].append(bitcoin_per_day_dollars)
         chart_data["hold"].append(hold_btc * current_btc_price)
 
@@ -103,9 +110,10 @@ def calc_callback():
 
     p.line(x=chart_data["date"], y=chart_data["cumulative"], name="cumulative", legend_label="Cumulative profit, $", color="red")
     p.line(x=chart_data["date"], y=chart_data["hold"], name="hold", legend_label="Hold BTC, $", color="olive")
+    p.line(x=chart_data["date"], y=chart_data["cumulative_btc"], name="cumulative_btc", legend_label="Cumulative BTC, $", color="magenta")
 
     p.left[0].formatter.use_scientific = False
-    p.left[0].axis_label = "Hold BTC and Cumulative profit, $"
+    p.left[0].axis_label = "Hold BTC and Cumulative profit and Cumulative BTC, $"
 
     p.right[0].formatter.use_scientific = False
     p.right[0].axis_label = "BTC price, $"
