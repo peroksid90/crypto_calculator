@@ -30,7 +30,7 @@ And then this position(0.0833) is recalculated on each point of the chart accord
 
 **Contribution are welcome!**
 
-#TODO
+## TODO
 
 Add mining pool fee calculation
 Add transaction earnings (FPPS)
