@@ -26,6 +26,8 @@ hold = 0.0833 BTC
 And then this position(0.0833) is recalculated on each point of the chart according to the current market BTC price.
 
 
+**Cummulative BTC** - if you hold mined BTC instead of sell on each day(as in case of **Cummulative**)
+
 **The left axis** is used for hold and cummulative. So you can compare what is better - spend money(Equipment cost) to buy a miner and mine, or just spend in to buy BTC and hold.
 
 **Contribution are welcome!**
