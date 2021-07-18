@@ -11,3 +11,6 @@ Register to https://www.quandl.com to obtain it.
 then open in a browser
 http://localhost:5006/crypto_calculator
 
+
+![Alt text](demo.png?raw=true "Demo")
+
