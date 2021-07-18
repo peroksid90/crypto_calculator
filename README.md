@@ -28,7 +28,9 @@ And then this position(0.0833) is recalculated on each point of the chart accord
 
 The left axis is used for hold and cummulative. So you can compare what is better - spend money(Equipment cost) to buy a miner and mine, or just spend in to buy BTC and hold.
 
+Contribution are welcome!
 
 TODO
+
 Add mining pool fee calculation
 Add transaction earnings (FPPS)
