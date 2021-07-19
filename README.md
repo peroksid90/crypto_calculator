@@ -12,6 +12,7 @@ http://localhost:5006/crypto_calculator
 
 
 ![Alt text](demo.png?raw=true "Demo")
+![Alt text](demo2.png?raw=true "Demo2")
 
 **Cummulative** - is a sum of each mining profit for all elapsed days.
 
